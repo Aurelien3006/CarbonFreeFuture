@@ -1,0 +1,56 @@
+/* Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+  
+h1 {
+    color: #2b9227;
+}
+
+/* Button Styles */
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #20b038;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0e7037;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #28500c;
+    color: #ffffff;
+}
+
+.hlogo img {
+    height: 70px; /* Adjust the height of the logo as needed */
+}
+
+.hlink {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.hlink li {
+    margin-left: 20px;
+}
+
+.hlink a {
+    text-decoration: none;
+    color: #fff;
+}
