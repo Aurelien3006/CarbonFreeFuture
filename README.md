@@ -8,3 +8,5 @@ Users can input various parameters, such as transportation habits, energy consum
 Additionally, it often offers informative resources on climate change, renewable energy, and conservation efforts. This interactive tool not only raises awareness about the environmental consequences of our daily activities but also empowers individuals to take meaningful steps towards a greener, more sustainable future. 
 
 As climate change becomes an increasingly pressing global concern, the availability and accessibility of carbon footprint calculators play a crucial role in mobilizing collective action for a more environmentally responsible world.
+
+Aurélien BRONCARD Riccardo Daffara Elodie Coulloc'h

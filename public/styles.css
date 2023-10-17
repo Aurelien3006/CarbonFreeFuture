@@ -10,21 +10,10 @@ h1 {
     color: #2b9227;
 }
 
-/* Button Styles */
-button {
-    padding: 10px 20px;
-    margin: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #20b038;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
+.h1-header{
+    color:#fff;
 }
 
-button:hover {
-    background-color: #0e7037;
-}
 
 .header {
     display: flex;
@@ -33,10 +22,12 @@ button:hover {
     padding: 10px 20px;
     background-color: #28500c;
     color: #ffffff;
+    border-radius: 10px;
 }
 
 .hlogo img {
     height: 70px; /* Adjust the height of the logo as needed */
+    border-radius: 10px;
 }
 
 .hlink {
@@ -53,4 +44,49 @@ button:hover {
 .hlink a {
     text-decoration: none;
     color: #fff;
+}
+
+/* Style for form elements */
+.form-group {
+margin-bottom: 15px;
+}
+
+.label {
+font-weight: bold;
+display: block;
+margin-bottom: 5px;
+}
+
+.input-field {
+width: 100%;
+padding: 8px;
+font-size: 16px;
+border: 1px solid #cccccc;
+border-radius: 4px;
+}
+
+/* Style for submit button */
+.submit-button {
+background-color: #4CAF50; /* Dark green button color */
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 4px;
+font-size: 16px;
+cursor: pointer;
+}
+
+.submit-button:hover {
+background-color: #45a049; /* Lighter green on hover */
+}
+
+/* Style paragraphs */
+.paragraph{
+    background-color: rgba(18, 144, 56, 0.927); /* Set the background color to light green */
+    color: #ffffff;
+    text-align: center; /* Center align the text */
+    max-width: 800px; /* Set a maximum width to avoid long lines */
+    margin: 0 auto; /* Center the paragraph within its container */
+    padding: 25px; /* Add some padding for better readability */
+    border-radius: 10px;
 }

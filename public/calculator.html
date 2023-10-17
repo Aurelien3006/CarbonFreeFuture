@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Carbon Free Future Calculator</title>
+    <!-- Import Styles CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Import Vue.js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="hlogo">
+          <img src="Carbon_logo.png" alt="Logo">
+      </div>
+      <h1 class="h1-header">Carbon Free Future</h1>
+        <ul class="hlink">
+            <li><a href="./index.html">Homepage</a></li>
+            <li><a href="./aboutus.html">About us</a></li>
+        </ul>
+    </header>
+    <h1>How many kg of CO2 do you emit ? </h1>
+    <form class="form-group">
+      <fieldset>
+        <h2>Carbon Footprint Calculator :</h2>
+        <fieldset>
+          <label class="label">
+            Name:
+            <input name="submitted-name" autocomplete="name" required/>
+          </label>
+          <label class="label">
+            Surname:
+            <input name="submitted-surname" autocomplete="surname" required/>
+          </label>
+          <label class="label">
+            Email:
+            <input name="submitted-email" autocomplete="email" required/>
+          </label>
+          <button class="submit-button">next</button>
+        </fieldset>
+        <fieldset>
+          <label class="label">
+            Country:
+            <input name="submitted-country" autocomplete="country" required/>
+          </label>
+          <button class="submit-button">next</button>
+        </fieldset>
+        <fieldset>
+          <label class="label">
+            Number of kilometers per day:
+            <input name="submitted-kilometers" autocomplete="kilometers" required/>
+          </label>
+          <button class="submit-button">next</button>
+        </fieldset>
+        <fieldset>
+          <label class="label">
+            Number of meals per day:
+            <input name="submitted-meals" autocomplete="meals" required/>
+          </label>
+          <button class="submit-button">next</button>
+        </fieldset>
+        <fieldset>
+          <label class="label">
+            Electricity usage(kW/h):
+            <input name="submitted-electricity" autocomplete="electricity" required/>
+          </label>
+          <button class="submit-button">next</button>
+        </fieldset>
+        <fieldset>
+          <label class="label">
+            Quantity of garbage (kg):
+            <input name="submitted-garbage" autocomplete="garbage" required/>
+          </label>
+          <button class="submit-button">next</button>
+        </fieldset>
+        <fieldset>
+          <legend>Do you agree to the terms?</legend>
+          <label class="label"><input type="radio" name="radio" value="yes" /> Yes</label>
+          <label class="label"><input type="radio" name="radio" value="no" /> No</label>
+        </fieldset>
+        <fieldset>
+            
+        </fieldset>
+      </fieldset>
+    </form>
+</body>
+</html>
