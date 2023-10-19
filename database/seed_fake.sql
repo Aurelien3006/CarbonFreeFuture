@@ -12,4 +12,3 @@ VALUES ('John', 'Doe', 1),
        ('Alice', 'Johnson', 2),
        ('Bob', 'Wilson', 3);
 -- Add more users as needed
-
