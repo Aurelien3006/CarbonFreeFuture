@@ -99,6 +99,7 @@ background-color: #45a049; /* Lighter green on hover */
     text-align: center;
     padding: 10px;
     border-radius: 0 0 10px 10px; /* Rounded corners for the bottom */
+    margin-top: 20px;
 }
 
 .footer p {
