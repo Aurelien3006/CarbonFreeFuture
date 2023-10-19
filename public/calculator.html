@@ -21,68 +21,105 @@
         </ul>
     </header>
     <h1>How many kg of CO2 do you emit ? </h1>
+     <!-- first form is for the creation of user -->
     <form class="form-group">
+      
+      <h2>&#x1F464; User creation:</h2>
       <fieldset>
-        <h2>Carbon Footprint Calculator :</h2>
-        <fieldset>
-          <label class="label">
-            Name:
-            <input name="submitted-name" autocomplete="name" required/>
-          </label>
-          <label class="label">
-            Surname:
-            <input name="submitted-surname" autocomplete="surname" required/>
-          </label>
-          <label class="label">
-            Email:
-            <input name="submitted-email" autocomplete="email" required/>
-          </label>
-          <button class="submit-button">next</button>
-        </fieldset>
-        <fieldset>
-          <label class="label">
-            Country:
-            <input name="submitted-country" autocomplete="country" required/>
-          </label>
-          <button class="submit-button">next</button>
-        </fieldset>
-        <fieldset>
-          <label class="label">
-            Number of kilometers per day:
-            <input name="submitted-kilometers" autocomplete="kilometers" required/>
-          </label>
-          <button class="submit-button">next</button>
-        </fieldset>
-        <fieldset>
-          <label class="label">
-            Number of meals per day:
-            <input name="submitted-meals" autocomplete="meals" required/>
-          </label>
-          <button class="submit-button">next</button>
-        </fieldset>
-        <fieldset>
-          <label class="label">
-            Electricity usage(kW/h):
-            <input name="submitted-electricity" autocomplete="electricity" required/>
-          </label>
-          <button class="submit-button">next</button>
-        </fieldset>
-        <fieldset>
-          <label class="label">
-            Quantity of garbage (kg):
-            <input name="submitted-garbage" autocomplete="garbage" required/>
-          </label>
-          <button class="submit-button">next</button>
-        </fieldset>
-        <fieldset>
-          <legend>Do you agree to the terms?</legend>
-          <label class="label"><input type="radio" name="radio" value="yes" /> Yes</label>
-          <label class="label"><input type="radio" name="radio" value="no" /> No</label>
-        </fieldset>
-        <fieldset>
-            
-        </fieldset>
+      <label for="country" class="label">&#x1F30E; Country :</label>
+      <select id="id_country" name="country" required>
+          <option value="2">France</option>
+          <option value="1">United States</option>
+      </select><br><br>
+  
+      <label for="last_name" class="label">Last Name:</label>
+      <input type="text" id="last_name" name="last_name" required><br><br>
+  
+      <label for="first_name" class="label">First Name :</label>
+      <input type="text" id="first_name" name="first_name" required><br><br>
+  
+      <input type="button" value="Créer l'Utilisateur" class="submit-button" onclick="createUser()">
       </fieldset>
     </form>
+
+    <!--second form is for getting the average values of emssion of the user /day and compute them -->
+    <h2>Carbon Footprint Calculator :</h2>
+    <form class="form-group">
+        <fieldset>
+        <label for="id_country"  class="label">&#x1F30E; Country Name:</label>
+        <select id="id_country" name="country" required>
+            <option value="2">France</option>
+            <option value="1">United States</option>
+        </select><br><br>
+        
+        <label for="transport_emission" class="label">&#x1F697; Number of kilometers per day using a car:</label>
+        <input type="number" id="transport_emission" name="transport_emission" step="0.01" required ><br><br>
+
+        <label for="diet_emission"  class="label">&#x1F373; Number of meals per day:</label>
+        <input type="number" id="diet_emission" name="diet_emission" step="0.01" required><br><br>
+
+        <label for="electricity_emission"  class="label">&#x1F50C; Electricity usage per day(kW/h):</label>
+        <input type="number" id="electricity_emission" name="electricity_emission" step="0.01" required><br><br>
+
+        <label for="waste_emission"  class="label">&#x1F5D1; Quantity of garbage par day(kg):</label>
+        <input type="number" id="waste_emission" name="waste_emission" step="0.01" required><br><br>
+
+        <input type="button" value="Submit" class="submit-button" onclick="compute()">
+      </fieldset>
+      </form>
+
+    <div id="total_result"></div>
+
+    <!--functions for the apis-->
+    <script>
+      function createUser(){
+          const id_country=document.getElementById("id_country").value;
+          const last_name=document.getElementById("last_name").value;
+          const first_name=document.getElementById("first_name").value;
+
+          
+          fetch('/api/create',{
+          
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({first_name,last_name,id_country}),
+          })
+          .then((response) => response.json())
+          .then((data) => {
+              console.log(data);
+              
+          })
+          .catch((error) => {
+              alert(error);
+          });
+      }
+      function compute(){
+          //it gets the values 
+          const id_country=document.getElementById("id_country").value;
+          const transport_emission=parseFloat(document.getElementById("transport_emission").value);
+          const diet_emission=parseFloat(document.getElementById("diet_emission").value);
+          const electricity_emission=parseFloat(document.getElementById("electricity_emission").value);
+          const waste_emission=parseFloat(document.getElementById("waste_emission").value);
+
+         
+
+          fetch('/api/carbonfootprint',{
+              method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body : JSON.stringify({id_country,transport_emission,diet_emission,electricity_emission,waste_emission})
+          })
+          .then((response)=>response.json())
+          .then((data)=>{
+              console.log(data);
+              document.getElementById("total_result").textContent = `Total Carbon Footprint: ${data.total} tonnes in a year`;
+          })
+          .catch((error)=>{alert(error);});
+          
+      }
+  </script>
 </body>
 </html>
