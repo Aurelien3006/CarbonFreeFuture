@@ -6,69 +6,73 @@
     <title>Carbon Free Future Calculator</title>
     <!-- Import Styles CSS -->
     <link rel="stylesheet" href="styles.css">
-    <!-- Import Vue.js -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
   <body>
-    <header class="header">
-      <div class="hlogo">
-          <img src="Carbon_logo.png" alt="Logo">
-      </div>
-      <h1 class="h1-header">Carbon Free Future</h1>
-        <ul class="hlink">
-            <li><a href="./index.html">Homepage</a></li>
-            <li><a href="./aboutus.html">About us</a></li>
-        </ul>
-    </header>
-    <h1>How many kg of CO2 do you emit ? </h1>
-     <!-- first form is for the creation of user -->
-    <form class="form-group">
-      
-      <h2>&#x1F464; User creation:</h2>
-      <fieldset>
-      <label for="country" class="label">&#x1F30E; Country :</label>
-      <select id="id_country" name="country" required>
-          <option value="2">France</option>
-          <option value="1">United States</option>
-      </select><br><br>
-  
-      <label for="last_name" class="label">Last Name:</label>
-      <input type="text" id="last_name" name="last_name" required><br><br>
-  
-      <label for="first_name" class="label">First Name :</label>
-      <input type="text" id="first_name" name="first_name" required><br><br>
-  
-      <input type="button" value="Créer l'Utilisateur" class="submit-button" onclick="createUser()">
-      </fieldset>
-    </form>
+    <div id="app" class="app">
+        <header class="header">
+          <div class="hlogo">
+              <img src="Carbon_logo.png" alt="Logo">
+          </div>
+          <h1 class="h1-header">{{ company_name }}</h1>
+            <ul class="hlink">
+                <li><a href="./index.html">Homepage</a></li>
+                <li><a href="./aboutus.html">About us</a></li>
+            </ul>
+        </header>
+        <h1>How many kg of CO2 do you emit ? </h1>
+         <!-- first form is for the creation of user -->
+        <form class="form-group">
 
-    <!--second form is for getting the average values of emssion of the user /day and compute them -->
-    <h2>Carbon Footprint Calculator :</h2>
-    <form class="form-group">
-        <fieldset>
-        <label for="id_country"  class="label">&#x1F30E; Country Name:</label>
-        <select id="id_country" name="country" required>
-            <option value="2">France</option>
-            <option value="1">United States</option>
-        </select><br><br>
-        
-        <label for="transport_emission" class="label">&#x1F697; Number of kilometers per day using a car:</label>
-        <input type="number" id="transport_emission" name="transport_emission" step="0.01" required ><br><br>
+          <h2>&#x1F464; User creation:</h2>
+          <fieldset>
+          <label for="id_country" class="label">&#x1F30E; Country :</label>
+          <select id="id_country" name="country" required>
+              <option value="2">France</option>
+              <option value="1">United States</option>
+          </select><br><br>
 
-        <label for="diet_emission"  class="label">&#x1F373; Number of meals per day:</label>
-        <input type="number" id="diet_emission" name="diet_emission" step="0.01" required><br><br>
+          <label for="last_name" class="label">Last Name:</label>
+          <input type="text" id="last_name" name="last_name" required><br><br>
 
-        <label for="electricity_emission"  class="label">&#x1F50C; Electricity usage per day(kW/h):</label>
-        <input type="number" id="electricity_emission" name="electricity_emission" step="0.01" required><br><br>
+          <label for="first_name" class="label">First Name :</label>
+          <input type="text" id="first_name" name="first_name" required><br><br>
 
-        <label for="waste_emission"  class="label">&#x1F5D1; Quantity of garbage par day(kg):</label>
-        <input type="number" id="waste_emission" name="waste_emission" step="0.01" required><br><br>
+          <input type="button" value="Créer l'Utilisateur" class="submit-button" onclick="createUser()">
+          </fieldset>
+        </form>
 
-        <input type="button" value="Submit" class="submit-button" onclick="compute()">
-      </fieldset>
-      </form>
+        <!--second form is for getting the average values of emssion of the user /day and compute them -->
+        <h2>Carbon Footprint Calculator :</h2>
+        <form class="form-group">
+            <fieldset>
+            <label for="id_country"  class="label">&#x1F30E; Country Name:</label>
+            <select id="id_country" name="country" required>
+                <option value="2">France</option>
+                <option value="1">United States</option>
+            </select><br><br>
 
-    <div id="total_result"></div>
+            <label for="transport_emission" class="label">&#x1F697; Number of kilometers per day using a car:</label>
+            <input type="number" id="transport_emission" name="transport_emission" step="0.01" value="0" min="0" ><br><br>
+
+            <label for="diet_emission"  class="label">&#x1F373; Number of meals per day:</label>
+            <input type="number" id="diet_emission" name="diet_emission" step="0.01" value="0" min="0" required><br><br>
+
+            <label for="electricity_emission"  class="label">&#x1F50C; Electricity usage per day(kW/h):</label>
+            <input type="number" id="electricity_emission" name="electricity_emission" step="0.01" value="0" min="0" required><br><br>
+
+            <label for="waste_emission"  class="label">&#x1F5D1; Quantity of garbage par day(kg):</label>
+            <input type="number" id="waste_emission" name="waste_emission" step="0.01" value="0" min="0" required><br><br>
+
+            <input type="button" value="Submit" class="submit-button" onclick="compute()">
+          </fieldset>
+          </form>
+
+        <div id="total_result"> Footprint calculated on the {{ date }} </div>
+
+        <footer class="footer">
+            <p>&copy;{{ copyright }}</p>
+        </footer>
+    </div>
 
     <!--functions for the apis-->
     <script>
@@ -118,8 +122,9 @@
               document.getElementById("total_result").textContent = `Total Carbon Footprint: ${data.total} tonnes in a year`;
           })
           .catch((error)=>{alert(error);});
-          
       }
-  </script>
-</body>
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./script.js"></script>
+  </body>
 </html>

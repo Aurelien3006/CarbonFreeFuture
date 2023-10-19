@@ -6,35 +6,42 @@
     <title>About us</title>
     <!-- Import Styles CSS -->
     <link rel="stylesheet" href="styles.css">
-    <!-- Import Vue.js -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
   <body>
-    <header class="header">
-      <div class="hlogo">
-          <img src="Carbon_logo.png" alt="Logo">
-      </div>
-      <h1 class="h1-header">Carbon Free Future</h1>
-        <ul class="hlink">
-            <li><a href="./index.html">Homepage</a></li>
-            <li><a href="./aboutus.html">About us</a></li>
-        </ul>
-    </header>
-    <h2>What's a carbon footprint calculator ?</h2>
-    <section>
-        <p class="paragraph">
-            A carbon footprint calculator web page is an invaluable tool in today's environmentally conscious society. 
-            This online platform serves as a user-friendly interface designed to help individuals assess their impact on the environment in terms of greenhouse gas emissions.
-            Users can input various parameters, such as transportation habits, energy consumption, and lifestyle choices, to generate a comprehensive analysis of their carbon footprint. 
-            The calculator then provides personalized recommendations and strategies to reduce emissions and adopt more sustainable practices.
-            Additionally, it often offers informative resources on climate change, renewable energy, and conservation efforts. 
-            This interactive tool not only raises awareness about the environmental consequences of our daily activities but also empowers individuals to take meaningful steps towards a greener, more sustainable future.
-            As climate change becomes an increasingly pressing global concern, the availability and accessibility of carbon footprint calculators play a crucial role in mobilizing collective action for a more environmentally responsible world.
-        </p>
-    </section>
-    <section>
-        <br>
-        <p class="paragraph">Our team of developpers : <br><br>Aurélien BRONCARD <br>Élodie COULLOC'H <br>Riccardo DAFFARA</p>
-    </section>
+    <div id="app" class="app">
+        <header class="header">
+          <div class="hlogo">
+              <img src="Carbon_logo.png" alt="Logo">
+          </div>
+          <h1 class="h1-header">{{ company_name }}</h1>
+            <ul class="hlink">
+                <li><a href="./index.html">Homepage</a></li>
+                <li><a href="./aboutus.html">About us</a></li>
+            </ul>
+        </header>
+        <h2>What's a carbon footprint calculator ?</h2>
+        <section>
+            <p class="paragraph">
+                A carbon footprint calculator web page is an invaluable tool in today's environmentally conscious society.
+                This online platform serves as a user-friendly interface designed to help individuals assess their impact on the environment in terms of greenhouse gas emissions.
+                Users can input various parameters, such as transportation habits, energy consumption, and lifestyle choices, to generate a comprehensive analysis of their carbon footprint.
+                The calculator then provides personalized recommendations and strategies to reduce emissions and adopt more sustainable practices.
+                Additionally, it often offers informative resources on climate change, renewable energy, and conservation efforts.
+                This interactive tool not only raises awareness about the environmental consequences of our daily activities but also empowers individuals to take meaningful steps towards a greener, more sustainable future.
+                As climate change becomes an increasingly pressing global concern, the availability and accessibility of carbon footprint calculators play a crucial role in mobilizing collective action for a more environmentally responsible world.
+            </p>
+        </section>
+        <section>
+            <br>
+            <p class="paragraph">Our team of developers : <br><br> {{ developers }}</p>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; {{ copyright }}</p>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="./script.js"></script>
+    </div>
   </body>
 </html>
